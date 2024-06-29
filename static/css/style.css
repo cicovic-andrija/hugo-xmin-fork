@@ -16,7 +16,7 @@ body {
 }
 .menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
-footer a { text-decoration: none; }
+footer a, .taxonomy-link { text-decoration: none; }
 hr {
   border-style: dashed;
   color: #ddd;

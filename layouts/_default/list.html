@@ -6,12 +6,20 @@
 
 {{ .Content }}
 
+{{ $pages := .Pages }}
+{{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+{{ $year := (index .Pages 0).Date.Year }}
+<h3><i>Anno {{ $year }}</i></h3>
 <ul>
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
   {{ range (where $pages "Section" "!=" "") }}
+  {{ if gt $year .Date.Year }}
+  {{ $year = .Date.Year }}
+  </ul>
+  <h3><i>Anno {{ $year }}</i></h3>
+  <ul>
+  {{ end }}
   <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <span class="date">{{ .Date.Format "2006-01-02" }} -- </span>
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}

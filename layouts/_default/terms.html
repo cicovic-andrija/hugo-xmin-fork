@@ -5,7 +5,7 @@
 <ul class="terms">
   {{ range .Data.Terms }}
   <li>
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
+    <a class="taxonomy-link" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
   </li>
   {{ end }}
 </ul>
