@@ -9,17 +9,19 @@
 {{ $pages := .Pages }}
 {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
 {{ $year := (index .Pages 0).Date.Year }}
-<h3><i>Anno {{ $year }}</i></h3>
+{{ if .IsHome }}<h3><i>Anno {{ $year }}</i></h3>{{ end }}
 <ul>
-  {{ range (where $pages "Section" "!=" "") }}
+  {{ range (where (where $pages "Section" "!=" "") "Section" "!=" "serials") }}
   {{ if gt $year .Date.Year }}
   {{ $year = .Date.Year }}
+  {{ if $.IsHome }}
   </ul>
   <h3><i>Anno {{ $year }}</i></h3>
   <ul>
   {{ end }}
+  {{ end }}
   <li>
-    <span class="date">{{ .Date.Format "2006-01-02" }} -- </span>
+    <span class="date">{{ .Date.Format "2006-01-02" }} 〜 </span>
     <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
   </li>
   {{ end }}

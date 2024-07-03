@@ -2,7 +2,9 @@
 <div class="article-meta">
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
+{{ if ne .Section "serials" }}
 {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006-01-02" }}</h2>{{ end }}
+{{ else }}<h2>Serial</h2>{{ end }}
 </div>
 
 <main>
@@ -11,7 +13,7 @@
 
 {{ with .GetTerms "tags" }}
 <hr />
-<i>Tags |</i>{{ range . }} <a class="taxonomy-link" href="/tags/{{ lower .Title }}">{{ lower .Title }}</a> |{{ end }}
+<strong>Tags</strong>{{ range . }} | <a class="taxonomy-link" href="/tags/{{ lower .Title }}">{{ lower .Title }}</a>{{ end }}
 {{ end }}
 
 {{ partial "footer.html" . }}
