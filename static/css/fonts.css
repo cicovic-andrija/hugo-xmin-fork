@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "custom-regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/ProzaLibre-Regular.woff2) format("woff2");
+}
 body {
-  font-family: Optima, Candara, Calibri, Arial, sans-serif;
+  font-family: custom-regular, Optima, Candara, Calibri, Arial, sans-serif;
 }
 code {
   font-family: "Lucida Console", Monaco, monospace;
