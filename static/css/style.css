@@ -41,10 +41,14 @@ code {
   border-radius: 6px;
   padding: 4px;
 }
-pre code { background: none; }
+pre code {
+  background: none;
+  padding: 0;
+}
 
 /* misc elements */
-img, iframe, video { max-width: 100%; }
+img, iframe, video { max-width: 100%; box-shadow: 5px 5px 5px #aaa; }
+figcaption { text-align: center; }
 main { hyphens: auto; }
 blockquote {
   background: #f9f9f9;
