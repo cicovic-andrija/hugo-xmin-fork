@@ -50,6 +50,16 @@ pre code {
 img, iframe, video { max-width: 100%; box-shadow: 5px 5px 5px #aaa; }
 figcaption { text-align: center; }
 main { hyphens: auto; }
+p {
+  text-align: justify;
+}
+p.intro-bubble {
+  color: #eee;
+  font-weight: bold;
+  background-color: #ff007f;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid #ccc;
